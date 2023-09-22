@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, jsonify
 from literatureClient import DB
 from markupsafe import escape
 import random
+from vercel_flask import vercel
 
 
 app = Flask(__name__)
@@ -120,4 +121,4 @@ def adding_book(type,grade,adding,auth_ind,book_ind):
 
 # Run the app when the script is executed
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    vercel(app)
