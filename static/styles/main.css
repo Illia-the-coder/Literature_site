@@ -1,0 +1,128 @@
+:root {
+    /* Global variables for colors and fonts */
+    --main-color: rgb(52, 53, 65); /* Main color for the app */
+    --shadow: 0 8px 40px rgba(0, 0, 0, 0.2); /* Box shadow for various elements */
+    --border-radius: 15px; /* Border radius for various elements */
+    --font-sans-serif: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; /* Sans-serif font */
+    --font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* Monospace font */
+}
+
+body {
+    font-family: var(--font-sans-serif); /* Use the global font variable */
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: #fff; /* White text color */
+    background-color: rgb(73, 75, 96); /* Dark background color */
+}
+
+#menu {
+    font-family: var(--font-monospace); /* Use the global monospace font variable */
+    margin: auto;
+    align-items: center;
+    padding: 10px 0 0 0;
+    box-shadow: var(--shadow); /* Use the global shadow variable */
+    margin-bottom: 10px;
+    margin-top: 20px;
+    list-style: none;
+    border-radius: var(--border-radius); /* Use the global border radius variable */
+    background-color: var(--main-color); /* Use the global main color variable */
+    box-shadow: var(--shadow); /* Use the global shadow variable */
+}
+
+#menu li {
+    display: flex;
+    padding: 0 0 10px 0;
+    position: relative;
+}
+
+#menu a {
+    width: max-content;
+    height: 25px;
+    padding: 0 25px;
+    text-transform: uppercase; /* Uppercase text */
+    text-decoration: none;
+    font: bold 15px/25px, sans-serif; /* Bold and sans-serif font */
+    color: #fff; /* White text color */
+}
+
+#menu li:hover>ul { /* Show the sub-menu when hovering over a menu item */
+    display: block;
+}
+
+#menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none; /* Hide the sub-menu by default */
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    background-color: var(--main-color); /* Use the global main color variable */
+    border-radius: var(--border-radius); /* Use the global border radius variable */
+    z-index: 1;
+}
+
+#menu ul li {
+    box-shadow: var(--shadow); /* Use the global shadow variable */
+    display: block;
+
+}
+
+#menu ul a:hover { /* Styling for when hovering over a sub-menu item */
+    border-radius: var(--border-radius); /* Use the global border radius variable */
+    background-color: var(--main-color); /* Use the global main color variable */
+}
+
+.card img { /* Styling for images inside cards */
+    border-radius: 10px; /* Add a 10px border radius to the images */
+}
+
+a {
+    color: #fff; /* White text color */
+    text-decoration-line: underline; /* Underline text */
+    text-underline-offset: 2px; /* Offset the underline by 2px */
+}
+
+.arc {
+    background-color: var(--main-color); /* Use the global main color variable */
+    margin-bottom: 15px;
+    padding: 5px;
+    border-radius: 10px; /* Add a 10px border radius */
+    height: min-content;
+}
+
+.arc a {
+    font-family: var(--font-monospace); /* Use the global monospace font variable */
+}
+
+.card {
+    font-family: var(--font-monospace); /* Use the global monospace font variable */
+    width: min-content;
+    max-width: 95%;
+    border-radius: 10px; /* Add a 10px border radius */
+    padding: 5px;
+    box-shadow: var(--shadow); /* Use the global shadow variable */
+    margin: 10px;
+    background: var(--main-color); /* Use the global main color variable */
+    text-align: center;
+    display: inline-block;
+}
+
+.card .card { /* Add the same styling to nested cards */
+    background: var(--main-color); /* Use the global main color variable */
+}
+
+/* Media query to change menu layout on smaller screens */
+@media screen and (max-width: 768px) {
+    #menu li {
+        float: none;
+    }
+
+    #menu ul {
+        position: static;
+    }
+}

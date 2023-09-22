@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+    <title>Автори ({{grade}} клас)</title>
+    <style>
+        .card:hover {
+            -webkit-transform: scale(0.96);
+            -ms-transform: scale(0.96);
+            transform: scale(0.96);
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="menu">
+        <li><a>Головна</a></li>
+        <li> <a>Українська література</a>
+            <ul>
+                <li><a href="/ukr/5_grade">5 клас</a></li>
+                <li><a href="/ukr/6_grade">6 клас</a></li>
+                <li><a href="/ukr/7_grade">7 клас</a></li>
+                <li><a href="/ukr/8_grade">8 клас</a></li>
+                <li><a href="/ukr/9_grade">9 клас</a></li>
+                <li><a href="/ukr/10_grade">10 клас</a></li>
+                <li><a href="/ukr/11_grade">11 клас</a></li>
+            </ul>
+        </li>
+        <li> <a>Світова література</a>
+            <ul>
+                <li><a href="/for/5_grade">5 клас</a></li>
+                <li><a href="/for/6_grade">6 клас</a></li>
+                <li><a href="/for/7_grade">7 клас</a></li>
+                <li><a href="/for/8_grade">8 клас</a></li>
+                <li><a href="/for/9_grade">9 клас</a></li>
+                <li><a href="/for/10_grade">10 клас</a></li>
+                <li><a href="/for/11_grade">11 клас</a></li>
+            </ul>
+        </li>
+
+    </ul>
+    <div class="arc">
+        <p><a href="/">Головна</a> /
+            <a href="/{{type_l}}/{{grade}}_grade">{{type}} література {{grade}} клас</a> /
+            <a href="/{{type_l}}/{{grade}}_grade/{{adding_l}}">{{adding}}</a>
+        </p>
+        <h1>{{adding}}</h1>
+        <h2>{{type}} література {{grade}} клас </h2>
+        <div class="adding_links"><a href="audio">->🔉Аудіокниги творів<-</a>
+            <br>
+            <a href="short">->📔Твори скорочено<-</a>
+            <br>
+            <a href="review">->📗Аналізи<-</a>
+            <br>
+            <a href="pres">->🎓Презентації<-</a></div></div>
+        <h2>Обери автора:</h2>
+    </div>
+    <div class="authors">{% for auth_data in auth_datas_simple %}
+        <div class="card">
+            <img alt='{{auth_data[0]}}' src="{{auth_data[1]}}">
+            <h3>
+                <a href="{{adding_l}}/auth_ind={{loop.index-1}}">{{auth_data[0]}}</a>
+            </h3>
+        </div>
+        </a> {% endfor %}
+    </div>
+</body>
+
+</html>

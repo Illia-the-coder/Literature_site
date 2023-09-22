@@ -1,10 +1,7 @@
 import pandas as pd
 import random as rnd
 import json
-class BSCH:
-    def __init__(self, name):
-        self.data = json.load(open(f"resource/Workbooks.json")).get(name) 
-        self.subj =list(self.data.keys())
+
 class DB:
     def __init__(self, grade,type):
         type='Світова' if type=='for' else 'Українська'
@@ -23,15 +20,7 @@ class DB:
                 text+=f"--> <i>{book}</i>\n{read_all}\n"
         return text
 
-    def get_presentation(self):
-        data={}
-        for author in self.authors:
-            PA=self.data_[self.data_[0].str.contains(author.lower())]
-            if len(PA): 
-                data[f'🔖{author}']={}
-                for name,link in zip(PA[1],PA[2]):
-                    data[f'🔖{author}'][name] = link
-        return data
+ 
     def get_books(self, author):
         return list(self.data_[author]['books'].keys())
     
@@ -51,17 +40,20 @@ class DB:
     def get_adding(self,command):
         modes = {'📔Твори скорочено':'Скорочено', '📗Аналізи':'Аналіз', '🔉Аудіокниги творів':'Аудіокниги'}
         data={}
-        for author in self.authors:
-            data_={}
-            for book in self.get_books(author):
-               for key in self.get_content(author, book):
-                   if  modes[command] == key:
-                       data_[f"{command[0]}{book}"] = f'<b>{book}</b>\n{self.get_content(author, book)[key]}'
-                       break
-            if len(data_.keys()):
-                data[f'{command[0]}{author}']=data_
-        return data
-# DF=DB('9 клас Світова')
-# for i in DF.authors:
-#     print(DF.get_bio(i))   
-# # DF=DF[DF[0].str.contains('Свіфт')]
+        if command in list(modes.keys())[:3]: 
+            for author in self.authors:
+                data_={}
+                for book in self.get_books(author):
+                   for key in self.get_content(author, book):
+                       if  modes[command] == key:
+                           data_[f"{command[0]}{book}"] = f'<b>{book}</b>\n{self.get_content(author, book)[key]}'
+                           break
+                if len(data_.keys()):
+                    data[f'{command[0]}{author}']=data_
+            return data
+        elif command =="🎓Презентації": 
+            return self.pres_data
+        
+
+
+

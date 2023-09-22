@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/card.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+    <title>{{book}}/{{author}}</title>
+</head>
+
+<body>
+    <ul id="menu">
+        <li><a>Головна</a></li>
+        <li> <a>Українська література</a>
+            <ul>
+                <li><a href="/ukr/5_grade">5 клас</a></li>
+                <li><a href="/ukr/6_grade">6 клас</a></li>
+                <li><a href="/ukr/7_grade">7 клас</a></li>
+                <li><a href="/ukr/8_grade">8 клас</a></li>
+                <li><a href="/ukr/9_grade">9 клас</a></li>
+                <li><a href="/ukr/10_grade">10 клас</a></li>
+                <li><a href="/ukr/11_grade">11 клас</a></li>
+            </ul>
+        </li>
+        <li> <a>Світова література</a>
+            <ul>
+                <li><a href="/for/5_grade">5 клас</a></li>
+                <li><a href="/for/6_grade">6 клас</a></li>
+                <li><a href="/for/7_grade">7 клас</a></li>
+                <li><a href="/for/8_grade">8 клас</a></li>
+                <li><a href="/for/9_grade">9 клас</a></li>
+                <li><a href="/for/10_grade">10 клас</a></li>
+                <li><a href="/for/11_grade">11 клас</a></li>
+            </ul>
+        </li>
+
+    </ul>
+    <div class="arc">
+        <p><a href="/">Головна</a> /
+             <a href="/{{type_l}}/{{grade}}_grade">{{type}} література {{grade}} клас</a> /
+            <a href="/{{type_l}}/{{grade}}_grade/{{adding_l}}">{{adding}}</a> /
+            <a href="/{{type_l}}/{{grade}}_grade/{{adding_l}}/auth_ind={{auth_ind}}">{{author}}</a> /
+              <a href="/{{type_l}}/{{grade}}_grade/{{adding_l}}/auth_ind={{auth_ind}}/book_ind={{book_ind}}">{{book}}</a>
+            </p>
+    </div>
+    <div class='card'>
+        <img src="{{img_src}}" alt="{{author}}">
+        <h1>{{author}}</h1>
+        <h2>{{book}}</h2>
+        <p>{{part|safe}}</p>
+    </div>
+
+    <script>
+        var links = document.getElementsByClassName('.card').getElementsByTagName('a');
+        for (var i = 0, len = links.length; i < len; i++) {
+            links[i].target = '_blank';
+        }
+    </script>
+</body>
+
+</html>
