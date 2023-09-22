@@ -120,4 +120,4 @@ def adding_book(type,grade,adding,auth_ind,book_ind):
 
 # Run the app when the script is executed
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
