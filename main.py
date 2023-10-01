@@ -3,7 +3,6 @@ from flask import Flask, render_template, request, jsonify
 from literatureClient import DB
 from markupsafe import escape
 import random
-# from vercel_flask import vercel
 
 
 app = Flask(__name__)
