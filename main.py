@@ -118,6 +118,6 @@ def adding_book(type,grade,adding,auth_ind,book_ind):
                            adding_l = adding, adding = replace[adding],grade=grade,type = type_to_ukr(type), 
                            type_l = type,img_src = img_src, auth_ind= auth_ind,book_ind = book_ind, part = part, author = author, book = book)
 
-# Run the app when the script is executed
-# if __name__ == '__main__':
-#     vercel(app)
+if __name__ == "__main__":
+    app.run()
+
